@@ -1,0 +1,30 @@
+{
+  "config_name": "conservative",
+  "trial_id": 0,
+  "config": {
+    "name": "conservative",
+    "state_dim": 25,
+    "action_dim": 5,
+    "hidden_dim": 768,
+    "num_layers": 5,
+    "learning_rate": 0.0001,
+    "batch_size": 512,
+    "buffer_size": 2000000,
+    "gamma": 0.995,
+    "tau": 0.002,
+    "expectile": 0.9,
+    "temperature": 2.0,
+    "clip_score": 200.0,
+    "epsilon_start": 0.5,
+    "epsilon_end": 0.001,
+    "epsilon_decay": 0.9999,
+    "alpha": 0.4,
+    "beta_start": 0.3,
+    "beta_frames": 200000,
+    "update_frequency": 8,
+    "target_update_frequency": 2000,
+    "device": "cuda"
+  },
+  "error": "too many values to unpack (expected 4)",
+  "training_completed": false
+}

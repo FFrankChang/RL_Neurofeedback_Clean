@@ -1,0 +1,30 @@
+{
+  "config_name": "fast_learning",
+  "trial_id": 0,
+  "config": {
+    "name": "fast_learning",
+    "state_dim": 25,
+    "action_dim": 5,
+    "hidden_dim": 256,
+    "num_layers": 3,
+    "learning_rate": 0.001,
+    "batch_size": 128,
+    "buffer_size": 500000,
+    "gamma": 0.95,
+    "tau": 0.01,
+    "expectile": 0.7,
+    "temperature": 5.0,
+    "clip_score": 50.0,
+    "epsilon_start": 0.8,
+    "epsilon_end": 0.05,
+    "epsilon_decay": 0.99,
+    "alpha": 0.7,
+    "beta_start": 0.5,
+    "beta_frames": 50000,
+    "update_frequency": 2,
+    "target_update_frequency": 500,
+    "device": "cuda"
+  },
+  "error": "too many values to unpack (expected 4)",
+  "training_completed": false
+}

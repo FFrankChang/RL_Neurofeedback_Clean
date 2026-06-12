@@ -1,0 +1,30 @@
+{
+  "config_name": "high_exploration",
+  "trial_id": 2,
+  "config": {
+    "name": "high_exploration",
+    "state_dim": 25,
+    "action_dim": 5,
+    "hidden_dim": 512,
+    "num_layers": 4,
+    "learning_rate": 0.0005,
+    "batch_size": 256,
+    "buffer_size": 1000000,
+    "gamma": 0.98,
+    "tau": 0.005,
+    "expectile": 0.6,
+    "temperature": 10.0,
+    "clip_score": 75.0,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.1,
+    "epsilon_decay": 0.999,
+    "alpha": 0.8,
+    "beta_start": 0.6,
+    "beta_frames": 75000,
+    "update_frequency": 4,
+    "target_update_frequency": 1000,
+    "device": "cuda"
+  },
+  "error": "too many values to unpack (expected 4)",
+  "training_completed": false
+}

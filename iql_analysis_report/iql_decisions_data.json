@@ -1,0 +1,1106 @@
+[
+  {
+    "filename": "carla_c06_S01_D01_RL_20260119114024",
+    "subject_id": "S01",
+    "group_type": "high_arousal",
+    "rl_start_time": 1768794024.7048054,
+    "rl_end_time": 1768794122.7145922,
+    "duration": 98.00978684425354,
+    "num_feedback_events": 4,
+    "decisions": [
+      {
+        "timestamp": 1768794032.6711552,
+        "step_index": 0,
+        "pupil_diameter": 4.0581133791802,
+        "pupil_relative_change": 3.7396081622617046,
+        "pupil_trend": -0.0030553089154486237,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.5365660495705318,
+          -0.024798092748859454,
+          -0.10994585650322515
+        ],
+        "q_value_selected": 0.5365660495705318,
+        "q_value_max": 0.5365660495705318,
+        "q_value_std": 0.28681342883667954,
+        "policy_probs": [
+          0.4277775338993176,
+          0.2942296304111909,
+          0.2779928356894915
+        ],
+        "policy_entropy": 1.079082397273642,
+        "policy_confidence": 0.4277775338993176,
+        "v_value": 0.13394070010614906,
+        "advantage": 0.4026253494643827
+      },
+      {
+        "timestamp": 1768794064.1130888,
+        "step_index": 1,
+        "pupil_diameter": 3.8982082194415,
+        "pupil_relative_change": -3.9044282468409133,
+        "pupil_trend": -0.019923399801915882,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.6128677659669457,
+          -0.13412422263846036,
+          -0.35626154082347816
+        ],
+        "q_value_selected": 0.6128677659669457,
+        "q_value_max": 0.6128677659669457,
+        "q_value_std": 0.41453503168559275,
+        "policy_probs": [
+          0.46907810367708574,
+          0.2850813641788812,
+          0.24584053214403315
+        ],
+        "policy_entropy": 1.0577891351336821,
+        "policy_confidence": 0.46907810367708574,
+        "v_value": 0.04082733416833573,
+        "advantage": 0.57204043179861
+      },
+      {
+        "timestamp": 1768794090.2275872,
+        "step_index": 2,
+        "pupil_diameter": 3.8587267516013997,
+        "pupil_relative_change": -4.893277629852862,
+        "pupil_trend": -0.05502338483870993,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.5153408483800742,
+          0.06205088891877014,
+          -0.20201613890051467
+        ],
+        "q_value_selected": 0.5153408483800742,
+        "q_value_max": 0.5153408483800742,
+        "q_value_std": 0.29623643517561826,
+        "policy_probs": [
+          0.423895890596937,
+          0.313341790669263,
+          0.2627623187338
+        ],
+        "policy_entropy": 1.0786200802304398,
+        "policy_confidence": 0.423895890596937,
+        "v_value": 0.12512519946610992,
+        "advantage": 0.3902156489139643
+      },
+      {
+        "timestamp": 1768794103.7233772,
+        "step_index": 3,
+        "pupil_diameter": 4.3401462562886,
+        "pupil_relative_change": -1.6191090533208226,
+        "pupil_trend": -0.0013165795570061918,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.3976347286911704,
+          0.20552775698353942,
+          -0.10666496774852621
+        ],
+        "q_value_selected": 0.3976347286911704,
+        "q_value_max": 0.3976347286911704,
+        "q_value_std": 0.2078160430614532,
+        "policy_probs": [
+          0.38546474503501577,
+          0.3391282728441705,
+          0.27540698212081377
+        ],
+        "policy_entropy": 1.0893298880604685,
+        "policy_confidence": 0.38546474503501577,
+        "v_value": 0.16549917264206118,
+        "advantage": 0.2321355560491092
+      }
+    ],
+    "action_distribution": {
+      "NONE": 4,
+      "SHORT_FB": 0,
+      "LONG_FB": 0
+    },
+    "mean_q_value": 0.5156023481521805,
+    "mean_policy_entropy": 1.076205375174558,
+    "mean_advantage": 0.39925424655651653,
+    "mean_confidence": 0.42655406830208903
+  },
+  {
+    "filename": "carla_c06_S01_D01_RL_20260119114659",
+    "subject_id": "S01",
+    "group_type": "high_arousal",
+    "rl_start_time": 1768794419.5409064,
+    "rl_end_time": 1768794500.1452613,
+    "duration": 80.60435485839844,
+    "num_feedback_events": 2,
+    "decisions": [
+      {
+        "timestamp": 1768794441.277774,
+        "step_index": 0,
+        "pupil_diameter": 3.9029953552495003,
+        "pupil_relative_change": 1.8089276159020045,
+        "pupil_trend": 0.02659679666984939,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.507923683707346,
+          0.23526894483616395,
+          -0.14389887892975453
+        ],
+        "q_value_selected": 0.507923683707346,
+        "q_value_max": 0.507923683707346,
+        "q_value_std": 0.2672870904250692,
+        "policy_probs": [
+          0.4030063808735551,
+          0.3360239944074248,
+          0.2609696247190201
+        ],
+        "policy_entropy": 1.0832858030639307,
+        "policy_confidence": 0.4030063808735551,
+        "v_value": 0.19976458320458515,
+        "advantage": 0.30815910050276085
+      },
+      {
+        "timestamp": 1768794469.34851,
+        "step_index": 1,
+        "pupil_diameter": 3.9793554510606,
+        "pupil_relative_change": 3.2952373891629145,
+        "pupil_trend": -0.006023867562946545,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.3968849044540114,
+          0.14425009408989986,
+          -0.3150659120994799
+        ],
+        "q_value_selected": 0.3968849044540114,
+        "q_value_max": 0.3968849044540114,
+        "q_value_std": 0.29470691771480656,
+        "policy_probs": [
+          0.4053327300800682,
+          0.34250459670824246,
+          0.25216267321168934
+        ],
+        "policy_entropy": 1.0804176333716122,
+        "policy_confidence": 0.4053327300800682,
+        "v_value": 0.07535636214814383,
+        "advantage": 0.3215285423058676
+      }
+    ],
+    "action_distribution": {
+      "NONE": 2,
+      "SHORT_FB": 0,
+      "LONG_FB": 0
+    },
+    "mean_q_value": 0.4524042940806787,
+    "mean_policy_entropy": 1.0818517182177714,
+    "mean_advantage": 0.3148438214043142,
+    "mean_confidence": 0.40416955547681166
+  },
+  {
+    "filename": "carla_c06_S02_D01_RL_20260119134604",
+    "subject_id": "S02",
+    "group_type": "low_arousal",
+    "rl_start_time": 1768801564.4636538,
+    "rl_end_time": 1768801710.579429,
+    "duration": 146.1157751083374,
+    "num_feedback_events": 3,
+    "decisions": [
+      {
+        "timestamp": 1768801582.55654,
+        "step_index": 0,
+        "pupil_diameter": 4.3397372070622,
+        "pupil_relative_change": 0.7370291689121877,
+        "pupil_trend": 0.007566700062080225,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          0.2054140361568727,
+          0.24400889068164966,
+          0.3278165163745687
+        ],
+        "q_value_selected": 0.3278165163745687,
+        "q_value_max": 0.3278165163745687,
+        "q_value_std": 0.051094300707957396,
+        "policy_probs": [
+          0.32143103331082423,
+          0.32980873922019105,
+          0.34876022746898466
+        ],
+        "policy_entropy": 1.0980268855759554,
+        "policy_confidence": 0.34876022746898466,
+        "v_value": 0.25907981440436373,
+        "advantage": 0.06873670197020498
+      },
+      {
+        "timestamp": 1768801610.818463,
+        "step_index": 1,
+        "pupil_diameter": 4.3316258557748,
+        "pupil_relative_change": 2.315356863767368,
+        "pupil_trend": 0.024541673728319433,
+        "action": 1,
+        "action_name": "SHORT_FB",
+        "q_values": [
+          0.018288454671527038,
+          0.3967049606408836,
+          0.33145646215174374
+        ],
+        "q_value_selected": 0.3967049606408836,
+        "q_value_max": 0.3967049606408836,
+        "q_value_std": 0.1651701545054784,
+        "policy_probs": [
+          0.28416149815384256,
+          0.3657025882509572,
+          0.3501359135952003
+        ],
+        "policy_entropy": 1.0928530089210737,
+        "policy_confidence": 0.3657025882509572,
+        "v_value": 0.24881662582138478,
+        "advantage": 0.14788833481949884
+      },
+      {
+        "timestamp": 1768801645.190726,
+        "step_index": 2,
+        "pupil_diameter": 4.5408116901388,
+        "pupil_relative_change": -0.5496550471900441,
+        "pupil_trend": -0.011577522583069454,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          0.2486006613404272,
+          0.20774397394141245,
+          0.41387710226640184
+        ],
+        "q_value_selected": 0.41387710226640184,
+        "q_value_max": 0.41387710226640184,
+        "q_value_std": 0.08911692533060432,
+        "policy_probs": [
+          0.32366506673486045,
+          0.31496812551517495,
+          0.3613668077499646
+        ],
+        "policy_entropy": 1.0968081021118998,
+        "policy_confidence": 0.3613668077499646,
+        "v_value": 0.2900739125160805,
+        "advantage": 0.12380318975032134
+      }
+    ],
+    "action_distribution": {
+      "NONE": 0,
+      "SHORT_FB": 1,
+      "LONG_FB": 2
+    },
+    "mean_q_value": 0.37946619309395135,
+    "mean_policy_entropy": 1.0958959988696428,
+    "mean_advantage": 0.11347607551334171,
+    "mean_confidence": 0.35860987448996884
+  },
+  {
+    "filename": "carla_c06_S02_D01_RL_20260119135539",
+    "subject_id": "S02",
+    "group_type": "low_arousal",
+    "rl_start_time": 1768802139.416926,
+    "rl_end_time": 1768802218.9060223,
+    "duration": 79.48909640312195,
+    "num_feedback_events": 4,
+    "decisions": [
+      {
+        "timestamp": 1768802152.329492,
+        "step_index": 0,
+        "pupil_diameter": 4.3665418095858,
+        "pupil_relative_change": 2.4219873349728283,
+        "pupil_trend": 0.01992365215080564,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          0.1438532877236894,
+          0.29952791339151863,
+          0.4016985203609459
+        ],
+        "q_value_selected": 0.4016985203609459,
+        "q_value_max": 0.4016985203609459,
+        "q_value_std": 0.10601760126354326,
+        "policy_probs": [
+          0.3033138474597449,
+          0.3364841863284451,
+          0.36020196621181
+        ],
+        "policy_entropy": 1.0961482396637345,
+        "policy_confidence": 0.36020196621181,
+        "v_value": 0.2816932404920513,
+        "advantage": 0.12000527986889459
+      },
+      {
+        "timestamp": 1768802170.2555397,
+        "step_index": 1,
+        "pupil_diameter": 4.266833436569501,
+        "pupil_relative_change": -0.19588042129715594,
+        "pupil_trend": 0.032710588801392326,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.3569977121044553,
+          0.20123019803384612,
+          0.2885308725114155
+        ],
+        "q_value_selected": 0.3569977121044553,
+        "q_value_max": 0.3569977121044553,
+        "q_value_std": 0.06374657666436773,
+        "policy_probs": [
+          0.3500485638421934,
+          0.3155215201469014,
+          0.33442991601090516
+        ],
+        "policy_entropy": 1.0977135917850593,
+        "policy_confidence": 0.3500485638421934,
+        "v_value": 0.28225292754990566,
+        "advantage": 0.07474478455454964
+      },
+      {
+        "timestamp": 1768802190.0251076,
+        "step_index": 2,
+        "pupil_diameter": 4.2075218229737,
+        "pupil_relative_change": 0.9819003987217516,
+        "pupil_trend": -0.0016701907955875952,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          0.0023472726102546776,
+          0.3239175307090595,
+          0.48547667512650694
+        ],
+        "q_value_selected": 0.48547667512650694,
+        "q_value_max": 0.48547667512650694,
+        "q_value_std": 0.20081024974237094,
+        "policy_probs": [
+          0.2763119844911095,
+          0.34237642099406584,
+          0.38131159451482466
+        ],
+        "policy_entropy": 1.0900106984732,
+        "policy_confidence": 0.38131159451482466,
+        "v_value": 0.2705804928152737,
+        "advantage": 0.21489618231123325
+      },
+      {
+        "timestamp": 1768802197.524562,
+        "step_index": 3,
+        "pupil_diameter": 3.9628279122859,
+        "pupil_relative_change": -0.1774828742381066,
+        "pupil_trend": 0.01068250620030908,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          0.08632630508141499,
+          0.29918122276449666,
+          0.5510622541170511
+        ],
+        "q_value_selected": 0.5510622541170511,
+        "q_value_max": 0.5510622541170511,
+        "q_value_std": 0.1899505117606371,
+        "policy_probs": [
+          0.28444239738590565,
+          0.3278099572620826,
+          0.3877476453520118
+        ],
+        "policy_entropy": 1.0905736646156765,
+        "policy_confidence": 0.3877476453520118,
+        "v_value": 0.3121899273209876,
+        "advantage": 0.23887232679606352
+      }
+    ],
+    "action_distribution": {
+      "NONE": 1,
+      "SHORT_FB": 0,
+      "LONG_FB": 3
+    },
+    "mean_q_value": 0.4488087904272398,
+    "mean_policy_entropy": 1.0936115486344176,
+    "mean_advantage": 0.16212964338268526,
+    "mean_confidence": 0.36982744248020993
+  },
+  {
+    "filename": "carla_c06_S03_D01_RL_20260119150939",
+    "subject_id": "S03",
+    "group_type": "high_arousal",
+    "rl_start_time": 1768806579.9214404,
+    "rl_end_time": 1768806706.759268,
+    "duration": 126.83782768249512,
+    "num_feedback_events": 4,
+    "decisions": [
+      {
+        "timestamp": 1768806589.570829,
+        "step_index": 0,
+        "pupil_diameter": 4.2797512600321,
+        "pupil_relative_change": -4.007990705642342,
+        "pupil_trend": 0.013640061351007328,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.5780711345389641,
+          0.18919050054441308,
+          -0.1348214878033766
+        ],
+        "q_value_selected": 0.5780711345389641,
+        "q_value_max": 0.5780711345389641,
+        "q_value_std": 0.29143854070593256,
+        "policy_probs": [
+          0.41782447681096446,
+          0.32240472827979644,
+          0.25977079490923916
+        ],
+        "policy_entropy": 1.0797375754653045,
+        "policy_confidence": 0.41782447681096446,
+        "v_value": 0.21081338242666683,
+        "advantage": 0.3672577521122973
+      },
+      {
+        "timestamp": 1768806603.824086,
+        "step_index": 1,
+        "pupil_diameter": 4.590965884418701,
+        "pupil_relative_change": -2.131824694453719,
+        "pupil_trend": 0.040635308370198034,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.8201388351253567,
+          0.1278593587680064,
+          -0.18599770290311263
+        ],
+        "q_value_selected": 0.8201388351253567,
+        "q_value_max": 0.8201388351253567,
+        "q_value_std": 0.42032630997335463,
+        "policy_probs": [
+          0.46693056483363166,
+          0.29431802849620675,
+          0.23875140667016168
+        ],
+        "policy_entropy": 1.0575525820784297,
+        "policy_confidence": 0.46693056483363166,
+        "v_value": 0.2540001636634168,
+        "advantage": 0.5661386714619399
+      },
+      {
+        "timestamp": 1768806622.1578605,
+        "step_index": 2,
+        "pupil_diameter": 3.9895349286418003,
+        "pupil_relative_change": -10.857108249222154,
+        "pupil_trend": -0.006141415982034584,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.5262426316074815,
+          0.2045714533537828,
+          0.12683146585296184
+        ],
+        "q_value_selected": 0.5262426316074815,
+        "q_value_max": 0.5262426316074815,
+        "q_value_std": 0.17289853540448225,
+        "policy_probs": [
+          0.3886187128851245,
+          0.3136103332143539,
+          0.2977709539005216
+        ],
+        "policy_entropy": 1.091698191393954,
+        "policy_confidence": 0.3886187128851245,
+        "v_value": 0.2858818502714087,
+        "advantage": 0.2403607813360728
+      },
+      {
+        "timestamp": 1768806687.002342,
+        "step_index": 3,
+        "pupil_diameter": 5.5562542777713,
+        "pupil_relative_change": 7.528845364830616,
+        "pupil_trend": 0.022361146795125058,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          1.1814696275686274,
+          0.10810948833866699,
+          -0.1653056721572019
+        ],
+        "q_value_selected": 1.1814696275686274,
+        "q_value_max": 1.1814696275686274,
+        "q_value_std": 0.5812497595152037,
+        "policy_probs": [
+          0.5273270584201015,
+          0.2578163562790614,
+          0.21485658530083707
+        ],
+        "policy_entropy": 1.0173298501485868,
+        "policy_confidence": 0.5273270584201015,
+        "v_value": 0.37475781458336416,
+        "advantage": 0.8067118129852633
+      }
+    ],
+    "action_distribution": {
+      "NONE": 4,
+      "SHORT_FB": 0,
+      "LONG_FB": 0
+    },
+    "mean_q_value": 0.7764805572101074,
+    "mean_policy_entropy": 1.0615795497715688,
+    "mean_advantage": 0.4951172544738933,
+    "mean_confidence": 0.4501752032374556
+  },
+  {
+    "filename": "carla_c06_S03_D01_RL_20260119151526",
+    "subject_id": "S03",
+    "group_type": "high_arousal",
+    "rl_start_time": 1768806926.796133,
+    "rl_end_time": 1768807019.2200434,
+    "duration": 92.42391037940979,
+    "num_feedback_events": 1,
+    "decisions": [
+      {
+        "timestamp": 1768806950.0637054,
+        "step_index": 0,
+        "pupil_diameter": 4.6606058238268,
+        "pupil_relative_change": -0.09315160380669932,
+        "pupil_trend": 0.025585370710779445,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.9757545871006249,
+          -0.07485869838267997,
+          -0.23836054596287617
+        ],
+        "q_value_selected": 0.9757545871006249,
+        "q_value_max": 0.9757545871006249,
+        "q_value_std": 0.5379587640258483,
+        "policy_probs": [
+          0.5150649059405233,
+          0.2556691093143343,
+          0.22926598474514237
+        ],
+        "policy_entropy": 1.0281054349798995,
+        "policy_confidence": 0.5150649059405233,
+        "v_value": 0.2208451142516896,
+        "advantage": 0.7549094728489353
+      }
+    ],
+    "action_distribution": {
+      "NONE": 1,
+      "SHORT_FB": 0,
+      "LONG_FB": 0
+    },
+    "mean_q_value": 0.9757545871006249,
+    "mean_policy_entropy": 1.0281054349798995,
+    "mean_advantage": 0.7549094728489353,
+    "mean_confidence": 0.5150649059405233
+  },
+  {
+    "filename": "carla_c06_S03_D01_RL_20260119152252",
+    "subject_id": "S03",
+    "group_type": "high_arousal",
+    "rl_start_time": 1768807373.1781497,
+    "rl_end_time": 1768807467.601475,
+    "duration": 94.42332530021667,
+    "num_feedback_events": 3,
+    "decisions": [
+      {
+        "timestamp": 1768807377.4755683,
+        "step_index": 0,
+        "pupil_diameter": 5.3625258077577005,
+        "pupil_relative_change": 14.332243747956397,
+        "pupil_trend": 0.028852175519859642,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          1.0435552814848645,
+          0.023334658210798984,
+          -0.23301707014720205
+        ],
+        "q_value_selected": 1.0435552814848645,
+        "q_value_max": 1.0435552814848645,
+        "q_value_std": 0.5513824341031148,
+        "policy_probs": [
+          0.5171942203404399,
+          0.26198084482937717,
+          0.2208249348301829
+        ],
+        "policy_entropy": 1.0254549551512548,
+        "policy_confidence": 0.5171942203404399,
+        "v_value": 0.27795762318282047,
+        "advantage": 0.7655976583020441
+      },
+      {
+        "timestamp": 1768807416.5111437,
+        "step_index": 1,
+        "pupil_diameter": 4.1931036149632,
+        "pupil_relative_change": 2.676468396991286,
+        "pupil_trend": 0.046611688744523455,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.6793929573481274,
+          -0.003899733883189177,
+          -0.08380659744902232
+        ],
+        "q_value_selected": 0.6793929573481274,
+        "q_value_max": 0.6793929573481274,
+        "q_value_std": 0.3424985919156184,
+        "policy_probs": [
+          0.4473613277637859,
+          0.2836775332578552,
+          0.2689611389783589
+        ],
+        "policy_entropy": 1.070459179161129,
+        "policy_confidence": 0.4473613277637859,
+        "v_value": 0.19722887533863864,
+        "advantage": 0.4821640820094888
+      },
+      {
+        "timestamp": 1768807428.961984,
+        "step_index": 2,
+        "pupil_diameter": 4.710682855704101,
+        "pupil_relative_change": 0.6512413582960471,
+        "pupil_trend": -0.01270380403603503,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.6980556274061035,
+          0.059813796401707024,
+          -0.18046963218739934
+        ],
+        "q_value_selected": 0.6980556274061035,
+        "q_value_max": 0.6980556274061035,
+        "q_value_std": 0.37071932968849935,
+        "policy_probs": [
+          0.4524535259813187,
+          0.29565419133618637,
+          0.2518922826824949
+        ],
+        "policy_entropy": 1.0663985997675185,
+        "policy_confidence": 0.4524535259813187,
+        "v_value": 0.19246659720680373,
+        "advantage": 0.5055890301992998
+      }
+    ],
+    "action_distribution": {
+      "NONE": 3,
+      "SHORT_FB": 0,
+      "LONG_FB": 0
+    },
+    "mean_q_value": 0.8070012887463651,
+    "mean_policy_entropy": 1.0541042446933009,
+    "mean_advantage": 0.5844502568369442,
+    "mean_confidence": 0.47233635802851487
+  },
+  {
+    "filename": "carla_c06_S03_D01_RL_20260119153519",
+    "subject_id": "S03",
+    "group_type": "high_arousal",
+    "rl_start_time": 1768808119.8830347,
+    "rl_end_time": 1768808211.2846606,
+    "duration": 91.40162587165833,
+    "num_feedback_events": 4,
+    "decisions": [
+      {
+        "timestamp": 1768808120.8438523,
+        "step_index": 0,
+        "pupil_diameter": 3.6516084140497997,
+        "pupil_relative_change": -22.87659617365326,
+        "pupil_trend": -0.038209187428871534,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.5703466797631134,
+          0.1853471895751426,
+          0.195201668223991
+        ],
+        "q_value_selected": 0.5703466797631134,
+        "q_value_max": 0.5703466797631134,
+        "q_value_std": 0.17921293910290886,
+        "policy_probs": [
+          0.39179551884624436,
+          0.3031033211574059,
+          0.3051011599963498
+        ],
+        "policy_entropy": 1.091116382425378,
+        "policy_confidence": 0.39179551884624436,
+        "v_value": 0.3169651791874157,
+        "advantage": 0.2533815005756977
+      },
+      {
+        "timestamp": 1768808134.4569645,
+        "step_index": 1,
+        "pupil_diameter": 4.3790043774517,
+        "pupil_relative_change": -2.6154296339116945,
+        "pupil_trend": -0.022005945163769813,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.4581529913301875,
+          0.044517784880251945,
+          -0.09704289424914156
+        ],
+        "q_value_selected": 0.4581529913301875,
+        "q_value_max": 0.4581529913301875,
+        "q_value_std": 0.2355551318468947,
+        "policy_probs": [
+          0.40822297807915997,
+          0.3098402170469404,
+          0.28193680487389966
+        ],
+        "policy_entropy": 1.0857356930990036,
+        "policy_confidence": 0.40822297807915997,
+        "v_value": 0.13520929398709927,
+        "advantage": 0.32294369734308825
+      },
+      {
+        "timestamp": 1768808146.711702,
+        "step_index": 2,
+        "pupil_diameter": 4.7094171336128,
+        "pupil_relative_change": -0.38326226436531535,
+        "pupil_trend": 0.058451353440806875,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.8770434810142063,
+          -0.05308235880055062,
+          -0.3359944656804177
+        ],
+        "q_value_selected": 0.8770434810142063,
+        "q_value_max": 0.8770434810142063,
+        "q_value_std": 0.5181842656206618,
+        "policy_probs": [
+          0.5042000756931775,
+          0.27120887261667803,
+          0.22459105169014446
+        ],
+        "policy_entropy": 1.0345793165003603,
+        "policy_confidence": 0.5042000756931775,
+        "v_value": 0.16265555217774597,
+        "advantage": 0.7143879288364603
+      },
+      {
+        "timestamp": 1768808195.1197069,
+        "step_index": 3,
+        "pupil_diameter": 5.4719140886423,
+        "pupil_relative_change": 11.335811082146197,
+        "pupil_trend": 0.04251271321921289,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.9896657256798067,
+          0.15965928928645168,
+          -0.18290891167153217
+        ],
+        "q_value_selected": 0.9896657256798067,
+        "q_value_max": 0.9896657256798067,
+        "q_value_std": 0.4922956357629935,
+        "policy_probs": [
+          0.4919692791218731,
+          0.28289580495335437,
+          0.22513491592477242
+        ],
+        "policy_entropy": 1.0418675294722572,
+        "policy_confidence": 0.4919692791218731,
+        "v_value": 0.3221387010982421,
+        "advantage": 0.6675270245815645
+      }
+    ],
+    "action_distribution": {
+      "NONE": 4,
+      "SHORT_FB": 0,
+      "LONG_FB": 0
+    },
+    "mean_q_value": 0.7238022194468285,
+    "mean_policy_entropy": 1.0633247303742497,
+    "mean_advantage": 0.4895600378342027,
+    "mean_confidence": 0.4490469629351137
+  },
+  {
+    "filename": "carla_c06_S04_D01_RL_20260119174409",
+    "subject_id": "S04",
+    "group_type": "low_arousal",
+    "rl_start_time": 1768815849.9229608,
+    "rl_end_time": 1768815929.458518,
+    "duration": 79.53555727005005,
+    "num_feedback_events": 2,
+    "decisions": [
+      {
+        "timestamp": 1768815853.8971927,
+        "step_index": 0,
+        "pupil_diameter": 4.7860675780865005,
+        "pupil_relative_change": 10.446613243159296,
+        "pupil_trend": 0.032298272136422765,
+        "action": 0,
+        "action_name": "NONE",
+        "q_values": [
+          0.5828582424881322,
+          0.1987296824396159,
+          0.36902476292920566
+        ],
+        "q_value_selected": 0.5828582424881322,
+        "q_value_max": 0.5828582424881322,
+        "q_value_std": 0.15715523891440036,
+        "policy_probs": [
+          0.378613642439624,
+          0.2930755909519093,
+          0.3283107666084668
+        ],
+        "policy_entropy": 1.0930940025015408,
+        "policy_confidence": 0.378613642439624,
+        "v_value": 0.3835375626189846,
+        "advantage": 0.19932067986914764
+      },
+      {
+        "timestamp": 1768815878.1146502,
+        "step_index": 1,
+        "pupil_diameter": 4.274853525459999,
+        "pupil_relative_change": 5.2886627836660605,
+        "pupil_trend": -0.049766112727953976,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          0.3750708472760804,
+          0.2128784152335714,
+          0.4048130285068893
+        ],
+        "q_value_selected": 0.4048130285068893,
+        "q_value_max": 0.4048130285068893,
+        "q_value_std": 0.08434708591989826,
+        "policy_probs": [
+          0.3427546941447833,
+          0.3076266049282801,
+          0.34961870092693653
+        ],
+        "policy_entropy": 1.0970710913977897,
+        "policy_confidence": 0.34961870092693653,
+        "v_value": 0.33092076367218043,
+        "advantage": 0.0738922648347089
+      }
+    ],
+    "action_distribution": {
+      "NONE": 1,
+      "SHORT_FB": 0,
+      "LONG_FB": 1
+    },
+    "mean_q_value": 0.49383563549751075,
+    "mean_policy_entropy": 1.0950825469496652,
+    "mean_advantage": 0.13660647235192827,
+    "mean_confidence": 0.36411617168328025
+  },
+  {
+    "filename": "carla_c06_S04_D01_RL_20260119175943",
+    "subject_id": "S04",
+    "group_type": "low_arousal",
+    "rl_start_time": 1768816783.8221917,
+    "rl_end_time": 1768816923.368916,
+    "duration": 139.546724319458,
+    "num_feedback_events": 4,
+    "decisions": [
+      {
+        "timestamp": 1768816829.7246308,
+        "step_index": 0,
+        "pupil_diameter": 3.6210536521966996,
+        "pupil_relative_change": 0.47537297286478775,
+        "pupil_trend": 0.011489597470110498,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          0.020568887072001857,
+          0.3564335384121914,
+          0.6041914527202005
+        ],
+        "q_value_selected": 0.6041914527202005,
+        "q_value_max": 0.6041914527202005,
+        "q_value_std": 0.23916622468156784,
+        "policy_probs": [
+          0.2683423207928253,
+          0.3356850097859937,
+          0.3959726694211809
+        ],
+        "policy_entropy": 1.0862628911373537,
+        "policy_confidence": 0.3959726694211809,
+        "v_value": 0.32706462606813125,
+        "advantage": 0.2771268266520692
+      },
+      {
+        "timestamp": 1768816845.793713,
+        "step_index": 1,
+        "pupil_diameter": 3.7852396475779,
+        "pupil_relative_change": 2.5078496862173663,
+        "pupil_trend": -0.005694904990851122,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          -0.04350075747068474,
+          0.45843669769426987,
+          0.5936717191756731
+        ],
+        "q_value_selected": 0.5936717191756731,
+        "q_value_max": 0.5936717191756731,
+        "q_value_std": 0.27410834940629664,
+        "policy_probs": [
+          0.25466854001106015,
+          0.3558779470299797,
+          0.38945351295896014
+        ],
+        "policy_entropy": 1.0832740387982491,
+        "policy_confidence": 0.38945351295896014,
+        "v_value": 0.3362025531330861,
+        "advantage": 0.25746916604258696
+      },
+      {
+        "timestamp": 1768816867.5196297,
+        "step_index": 2,
+        "pupil_diameter": 4.183329806187,
+        "pupil_relative_change": 9.263944966615362,
+        "pupil_trend": -0.008968666505190868,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          0.3014992942473225,
+          0.3076895990687091,
+          0.40358374112359324
+        ],
+        "q_value_selected": 0.40358374112359324,
+        "q_value_max": 0.40358374112359324,
+        "q_value_std": 0.0467323830719581,
+        "policy_probs": [
+          0.3252496895810055,
+          0.326594726215356,
+          0.34815558420363857
+        ],
+        "policy_entropy": 1.0981200918920955,
+        "policy_confidence": 0.34815558420363857,
+        "v_value": 0.3375908781465416,
+        "advantage": 0.06599286297705165
+      },
+      {
+        "timestamp": 1768816884.216434,
+        "step_index": 3,
+        "pupil_diameter": 3.8134200995039,
+        "pupil_relative_change": -6.241868167684784,
+        "pupil_trend": -0.03206964647522684,
+        "action": 1,
+        "action_name": "SHORT_FB",
+        "q_values": [
+          0.17984621307673435,
+          0.6381817418588692,
+          0.5992042025547014
+        ],
+        "q_value_selected": 0.6381817418588692,
+        "q_value_max": 0.6381817418588692,
+        "q_value_std": 0.20748542890022956,
+        "policy_probs": [
+          0.27174322841611576,
+          0.3688590624300117,
+          0.35939770915387254
+        ],
+        "policy_entropy": 1.0897126322841133,
+        "policy_confidence": 0.3688590624300117,
+        "v_value": 0.472410719163435,
+        "advantage": 0.1657710226954342
+      }
+    ],
+    "action_distribution": {
+      "NONE": 0,
+      "SHORT_FB": 1,
+      "LONG_FB": 3
+    },
+    "mean_q_value": 0.5599071637195839,
+    "mean_policy_entropy": 1.089342413527953,
+    "mean_advantage": 0.1915899695917855,
+    "mean_confidence": 0.3756102072534478
+  },
+  {
+    "filename": "carla_c06_S04_D01_RL_20260119180506",
+    "subject_id": "S04",
+    "group_type": "low_arousal",
+    "rl_start_time": 1768817106.2409678,
+    "rl_end_time": 1768817244.8303192,
+    "duration": 138.58935141563416,
+    "num_feedback_events": 3,
+    "decisions": [
+      {
+        "timestamp": 1768817143.377182,
+        "step_index": 0,
+        "pupil_diameter": 3.8687410080242,
+        "pupil_relative_change": 0.060712482844187954,
+        "pupil_trend": 0.0073804750681523,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          0.09043381469123211,
+          0.19751986792503645,
+          0.47634650330922945
+        ],
+        "q_value_selected": 0.47634650330922945,
+        "q_value_max": 0.47634650330922945,
+        "q_value_std": 0.16266540936441495,
+        "policy_probs": [
+          0.2969648690098698,
+          0.3189404945105794,
+          0.38409463647955083
+        ],
+        "policy_entropy": 1.092554021590418,
+        "policy_confidence": 0.38409463647955083,
+        "v_value": 0.2547667286418327,
+        "advantage": 0.22157977466739676
+      },
+      {
+        "timestamp": 1768817210.031749,
+        "step_index": 1,
+        "pupil_diameter": 3.7422185831281,
+        "pupil_relative_change": -4.158340419169,
+        "pupil_trend": -0.002847595673310461,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          -0.05872395348252826,
+          0.28033038068782223,
+          0.6979729072068123
+        ],
+        "q_value_selected": 0.6979729072068123,
+        "q_value_max": 0.6979729072068123,
+        "q_value_std": 0.30947505023362964,
+        "policy_probs": [
+          0.2557728155590708,
+          0.32064219176583003,
+          0.4235849926750991
+        ],
+        "policy_entropy": 1.0773052650466302,
+        "policy_confidence": 0.4235849926750991,
+        "v_value": 0.3065264448040354,
+        "advantage": 0.39144646240277686
+      },
+      {
+        "timestamp": 1768817236.9631586,
+        "step_index": 2,
+        "pupil_diameter": 4.1971799187854995,
+        "pupil_relative_change": -3.406631403442506,
+        "pupil_trend": 0.011582807862953293,
+        "action": 2,
+        "action_name": "LONG_FB",
+        "q_values": [
+          -0.008657486643207285,
+          0.20462049351527323,
+          0.5059073957343279
+        ],
+        "q_value_selected": 0.5059073957343279,
+        "q_value_max": 0.5059073957343279,
+        "q_value_std": 0.2110919526981974,
+        "policy_probs": [
+          0.28073958187311426,
+          0.323633856690486,
+          0.3956265614363997
+        ],
+        "policy_entropy": 1.0885947573733061,
+        "policy_confidence": 0.3956265614363997,
+        "v_value": 0.23395680086879792,
+        "advantage": 0.27195059486552997
+      }
+    ],
+    "action_distribution": {
+      "NONE": 0,
+      "SHORT_FB": 0,
+      "LONG_FB": 3
+    },
+    "mean_q_value": 0.5600756020834565,
+    "mean_policy_entropy": 1.0861513480034513,
+    "mean_advantage": 0.2949922773119012,
+    "mean_confidence": 0.4011020635303499
+  }
+]
