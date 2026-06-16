@@ -1,0 +1,32 @@
+# 论文相关代码运行环境依赖
+# Python 3.10 (与开发环境一致)
+
+# 数值与数据处理
+numpy
+pandas
+scipy
+
+# 机器学习 / 聚类 / 分类
+scikit-learn
+xgboost            # 3.5.2 眼动认知负荷预测模型（XGBoost）
+
+# 黎曼几何（3.7 脑连接性 SPD 切空间聚类与分类器）
+pyriemann
+
+# 图论拓扑特征（3.7.1 全局效率/聚类系数/模块度）
+networkx
+
+# 强化学习环境（4.4 IQL）
+gymnasium
+torch              # IQL 神经网络（Dueling Q / V / Policy）
+
+# 可视化
+matplotlib
+seaborn
+
+# Word 文档生成
+python-docx
+
+# 其他
+tqdm
+joblib
