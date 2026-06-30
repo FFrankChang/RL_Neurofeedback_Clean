@@ -18,7 +18,7 @@ class IQLConfig:
     """IQL算法配置"""
     # 网络参数
     state_dim: int = 10  # 统一为10维瞳孔状态（论文式4-9）
-    action_dim: int = 5
+    action_dim: int = 3
     hidden_dim: int = 512
     num_layers: int = 4
     

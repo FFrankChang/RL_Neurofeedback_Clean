@@ -52,9 +52,9 @@ from iql_realtime_output_design import (  # noqa: E402
 )
 from neural_feedback_iql import ImplicitQLearning, IQLConfig  # noqa: E402
 
-# 论文表4-3的5维动作空间
-ACTION_NAMES = [a.name for a in FeedbackAction]  # NONE/VISUAL/AUDITORY/HAPTIC/MULTIMODAL
-ACTION_COLORS = ['#95a5a6', '#3498db', '#e74c3c', '#f39c12', '#9b59b6']
+# 论文5.4.1节表5.7的3维动作空间
+ACTION_NAMES = [a.name for a in FeedbackAction]  # NONE/SHORT_5S/LONG_20S
+ACTION_COLORS = ['#95a5a6', '#3498db', '#e74c3c']
 
 
 @dataclass
@@ -109,6 +109,10 @@ class IQLPolicyModel:
         if self.state_dim != 10:
             raise ValueError(
                 f"当前模型为 {self.state_dim} 维，请使用10维模型。"
+            )
+        if self.action_dim != 3:
+            raise ValueError(
+                f"论文动作空间应为3维(NONE/SHORT_5S/LONG_20S)，当前模型为 {self.action_dim} 维。"
             )
 
     def _build_model_state(self, pupil_state: PupilState) -> np.ndarray:

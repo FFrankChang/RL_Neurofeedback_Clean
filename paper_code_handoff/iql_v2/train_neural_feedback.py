@@ -4,13 +4,21 @@ import torch
 from tqdm import tqdm
 import pickle
 import os
+import json
 from datetime import datetime
+from typing import Optional
 import warnings
 warnings.filterwarnings('ignore')
 
 # 导入自定义模块
 from neural_feedback_env import NeuralFeedbackEnvironment, FeedbackType
 from neural_feedback_iql import ImplicitQLearning, IQLConfig
+from group_wrappers import GroupRewardWrapper
+
+try:
+    from joblib import load as joblib_load
+except ImportError:
+    joblib_load = None
 
 class NeuralFeedbackTrainer:
     """神经反馈强化学习训练器"""
@@ -26,6 +34,15 @@ class NeuralFeedbackTrainer:
             'render_eval': False,
             'early_stopping_patience': 2000,
             'target_reward': -5.0,  # 目标平均奖励
+            # 论文5.4.1/5.4.2：默认启用人群分型适配闭环（分型 -> 差异化奖励 -> IQL）
+            'enable_group_adaptation': True,
+            'num_groups': 4,
+            'subject_id': None,                      # 如 "S01"
+            'fixed_group_id': None,                  # 指定后优先使用
+            'group_mapping_json': None,              # subject_id -> group_id 的JSON映射
+            'group_classifier_model_path': None,     # 3.7.2分类器 .joblib
+            'group_classifier_input_path': None,     # 单被试SPD张量 .npy/.npz
+            'fallback_group_strategy': 'round_robin' # round_robin | random | fixed_1
         }
         
         if config_overrides:
@@ -42,9 +59,23 @@ class NeuralFeedbackTrainer:
             'comfort_weight': 2.0
         }
         
-        # 创建环境
-        self.env = NeuralFeedbackEnvironment(self.env_config)
-        self.eval_env = NeuralFeedbackEnvironment(self.env_config)
+        # 创建环境（默认接入人群分型奖励包装器）
+        self.enable_group_adaptation = bool(self.training_config.get('enable_group_adaptation', True))
+        self.num_groups = int(self.training_config.get('num_groups', 4))
+        self.group_mapping = self._load_group_mapping(self.training_config.get('group_mapping_json'))
+        self.group_classifier = self._load_group_classifier(
+            self.training_config.get('group_classifier_model_path')
+        )
+        self.subject_group_id = self._resolve_subject_group_id()
+
+        base_env = NeuralFeedbackEnvironment(self.env_config)
+        base_eval_env = NeuralFeedbackEnvironment(self.env_config)
+        if self.enable_group_adaptation:
+            self.env = GroupRewardWrapper(base_env, num_groups=self.num_groups)
+            self.eval_env = GroupRewardWrapper(base_eval_env, num_groups=self.num_groups)
+        else:
+            self.env = base_env
+            self.eval_env = base_eval_env
         
         # 创建IQL配置
         self.iql_config = IQLConfig(
@@ -79,6 +110,7 @@ class NeuralFeedbackTrainer:
             'episode_lengths': [],
             'arousal_tracking_error': [],
             'feedback_usage_rate': [],
+            'group_id_history': [],
             'evaluation_rewards': [],
             'evaluation_arousal_errors': [],
             'loss_history': {
@@ -99,6 +131,9 @@ class NeuralFeedbackTrainer:
         print(f"环境状态维度: {self.env.observation_space.shape[0]}")
         print(f"动作空间大小: {self.env.action_space.n}")
         print(f"设备: {self.iql_config.device}")
+        if self.enable_group_adaptation:
+            print(f"人群分型适配: 已启用 (num_groups={self.num_groups})")
+            print(f"固定被试分组: {self.subject_group_id if self.subject_group_id is not None else '未固定，按回退策略分配'}")
         print(f"模型保存路径: {self.save_dir}")
         print("-" * 60)
         
@@ -106,6 +141,10 @@ class NeuralFeedbackTrainer:
         episodes_since_improvement = 0
         
         for episode in tqdm(range(self.training_config['num_episodes']), desc="训练进度"):
+            group_id = self._assign_group_for_episode(episode, training=True)
+            self._set_group(self.env, group_id)
+            self._set_group(self.eval_env, group_id)
+
             # 训练一个episode
             episode_reward, episode_length, episode_stats = self._train_episode()
             
@@ -114,6 +153,7 @@ class NeuralFeedbackTrainer:
             self.training_stats['episode_lengths'].append(episode_length)
             self.training_stats['arousal_tracking_error'].append(episode_stats['avg_arousal_error'])
             self.training_stats['feedback_usage_rate'].append(episode_stats['feedback_rate'])
+            self.training_stats['group_id_history'].append(group_id)
             
             # 定期评估
             if (episode + 1) % self.training_config['evaluation_frequency'] == 0:
@@ -125,6 +165,8 @@ class NeuralFeedbackTrainer:
                 print(f"训练奖励(最近100轮): {np.mean(self.training_stats['episode_rewards'][-100:]):.3f}")
                 print(f"探索率: {self.agent.epsilon:.4f}")
                 print(f"反馈使用率: {episode_stats['feedback_rate']:.3f}")
+                if self.enable_group_adaptation:
+                    print(f"当前分组ID: {group_id}")
                 
                 # 早停检查
                 if eval_reward > best_eval_reward:
@@ -161,6 +203,122 @@ class NeuralFeedbackTrainer:
         self._generate_training_report()
         
         return best_eval_reward
+
+    def _load_group_mapping(self, mapping_path: Optional[str]) -> dict:
+        if not mapping_path:
+            return {}
+        if not os.path.exists(mapping_path):
+            print(f"警告: group_mapping_json 不存在: {mapping_path}")
+            return {}
+        with open(mapping_path, 'r', encoding='utf-8') as f:
+            mapping = json.load(f)
+        if not isinstance(mapping, dict):
+            print("警告: group_mapping_json 不是字典，忽略。")
+            return {}
+        return mapping
+
+    def _load_group_classifier(self, model_path: Optional[str]):
+        if not model_path:
+            return None
+        if joblib_load is None:
+            print("警告: 未安装 joblib，无法加载人群分类器。")
+            return None
+        if not os.path.exists(model_path):
+            print(f"警告: group_classifier_model_path 不存在: {model_path}")
+            return None
+        try:
+            return joblib_load(model_path)
+        except Exception as exc:
+            print(f"警告: 加载人群分类器失败: {exc}")
+            return None
+
+    def _load_spd_input(self, path: Optional[str]) -> Optional[np.ndarray]:
+        if not path or not os.path.exists(path):
+            return None
+        try:
+            if path.endswith('.npz'):
+                npz = np.load(path)
+                key = 'X_spd' if 'X_spd' in npz else npz.files[0]
+                x = np.asarray(npz[key], dtype=float)
+            else:
+                x = np.asarray(np.load(path), dtype=float)
+            if x.ndim == 2:
+                x = x[None, None, :, :]  # (1,1,C,C)
+            elif x.ndim == 3:
+                if x.shape[1] == x.shape[2]:
+                    x = x[None, :, :, :]   # (1,V,C,C) 或 (1,C,C) 已扩展
+                else:
+                    return None
+            elif x.ndim == 4:
+                pass
+            else:
+                return None
+            return x
+        except Exception as exc:
+            print(f"警告: 读取分类器输入SPD失败: {exc}")
+            return None
+
+    def _predict_group_id_by_classifier(self) -> Optional[int]:
+        if self.group_classifier is None:
+            return None
+        spd_input_path = self.training_config.get('group_classifier_input_path')
+        x = self._load_spd_input(spd_input_path)
+        if x is None:
+            print("警告: 未提供有效 group_classifier_input_path，无法自动分型。")
+            return None
+        try:
+            pred = self.group_classifier.predict(x)
+            raw_group = int(np.asarray(pred).reshape(-1)[0])
+            # 分类器通常输出0-3，训练环境使用1-4
+            if raw_group < 1:
+                return raw_group + 1
+            return raw_group
+        except Exception as exc:
+            print(f"警告: 分类器分型失败: {exc}")
+            return None
+
+    def _normalize_group_id(self, group_id: int) -> int:
+        gid = int(group_id)
+        if gid < 1:
+            gid = 1
+        if gid > self.num_groups:
+            gid = ((gid - 1) % self.num_groups) + 1
+        return gid
+
+    def _resolve_subject_group_id(self) -> Optional[int]:
+        if not self.enable_group_adaptation:
+            return None
+        fixed = self.training_config.get('fixed_group_id')
+        if fixed is not None:
+            return self._normalize_group_id(int(fixed))
+
+        subject_id = self.training_config.get('subject_id')
+        if subject_id and subject_id in self.group_mapping:
+            return self._normalize_group_id(int(self.group_mapping[subject_id]))
+
+        pred_group = self._predict_group_id_by_classifier()
+        if pred_group is not None:
+            pred_group = self._normalize_group_id(pred_group)
+            print(f"已通过分类器预测 group_id={pred_group}")
+            return pred_group
+        return None
+
+    def _assign_group_for_episode(self, episode_idx: int, training: bool = True) -> int:
+        if not self.enable_group_adaptation:
+            return 1
+        if self.subject_group_id is not None:
+            return self.subject_group_id
+
+        strategy = str(self.training_config.get('fallback_group_strategy', 'round_robin')).lower()
+        if strategy == 'random' and training:
+            return int(np.random.randint(1, self.num_groups + 1))
+        if strategy == 'fixed_1':
+            return 1
+        return (episode_idx % self.num_groups) + 1
+
+    def _set_group(self, env_obj, group_id: int):
+        if self.enable_group_adaptation and hasattr(env_obj, 'set_group'):
+            env_obj.set_group(self._normalize_group_id(group_id))
     
     def _train_episode(self):
         """训练一个episode"""

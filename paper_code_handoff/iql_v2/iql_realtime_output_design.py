@@ -18,12 +18,10 @@ from enum import Enum
 
 
 class FeedbackAction(Enum):
-    """反馈动作类型"""
+    """反馈动作类型（论文5.4.1 表5.7）"""
     NONE = 0           # 不干预
-    VISUAL = 1         # 视觉反馈（如屏幕提示）
-    AUDITORY = 2       # 听觉反馈（如语音提示）
-    HAPTIC = 3         # 触觉反馈（如振动）
-    MULTIMODAL = 4     # 多模态组合反馈
+    SHORT_5S = 1       # 5秒短时反馈
+    LONG_20S = 2       # 20秒长时反馈
 
 
 @dataclass
@@ -89,11 +87,11 @@ class IQLDecisionOutput:
     pupil_relative_change: float    # 瞳孔相对变化
     
     # ========== 核心输出 - 选定动作 ==========
-    action: int                     # 选定的动作 (0-4)
-    action_name: str                # 动作名称 (NONE/VISUAL/AUDITORY/HAPTIC/MULTIMODAL)
+    action: int                     # 选定的动作 (0-2)
+    action_name: str                # 动作名称 (NONE/SHORT_5S/LONG_20S)
     
     # ========== Q值分析 ==========
-    q_values: List[float]           # 所有动作的Q值 [Q(s,a0), Q(s,a1), ..., Q(s,a4)]
+    q_values: List[float]           # 所有动作的Q值 [Q(s,a0), Q(s,a1), Q(s,a2)]
     q_value_selected: float         # 选定动作的Q值
     q_value_max: float              # 最大Q值
     q_value_mean: float             # 平均Q值
@@ -443,6 +441,10 @@ class IQLRealtimeInference:
         if self.state_dim != 10:
             raise ValueError(
                 f"统一口径为10维瞳孔状态，当前checkpoint为 {self.state_dim} 维，请使用10维模型。"
+            )
+        if self.action_dim != 3:
+            raise ValueError(
+                f"论文动作空间应为3维(NONE/SHORT_5S/LONG_20S)，当前checkpoint为 {self.action_dim} 维。"
             )
 
     def _build_model_state(self, state: PupilState) -> np.ndarray:

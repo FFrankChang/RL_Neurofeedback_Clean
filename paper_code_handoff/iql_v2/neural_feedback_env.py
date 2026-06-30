@@ -7,12 +7,10 @@ from dataclasses import dataclass
 from enum import Enum
 
 class FeedbackType(Enum):
-    """反馈类型枚举"""
+    """反馈动作枚举（论文5.4.1 表5.7：按反馈时长离散）。"""
     NONE = 0
-    VISUAL = 1
-    AUDITORY = 2
-    HAPTIC = 3
-    MULTIMODAL = 4
+    SHORT_5S = 1
+    LONG_20S = 2
 
 @dataclass
 class EEGMetrics:
@@ -65,7 +63,7 @@ class NeuralFeedbackEnvironment(gym.Env):
             dtype=np.float32
         )
         
-        # 动作空间 - 是否发送反馈及反馈类型
+        # 动作空间 - 是否发送反馈以及反馈时长
         self.action_space = spaces.Discrete(len(FeedbackType))
         
         # 内部状态
@@ -233,15 +231,13 @@ class NeuralFeedbackEnvironment(gym.Env):
             (1 - eeg_metrics.drowsiness_index) * 0.15
         )
         
-        # 反馈对arousal的即时影响
+        # 反馈对arousal的即时影响（按反馈持续时间建模）
         feedback_effect = 0.0
         if feedback_type != FeedbackType.NONE:
-            # 不同反馈类型有不同的arousal激活效果
+            # 长时反馈激活更强，但代价也更高（在奖励函数中体现）
             feedback_effects = {
-                FeedbackType.VISUAL: 0.15,
-                FeedbackType.AUDITORY: 0.20,
-                FeedbackType.HAPTIC: 0.25,
-                FeedbackType.MULTIMODAL: 0.30
+                FeedbackType.SHORT_5S: 0.15,
+                FeedbackType.LONG_20S: 0.25,
             }
             feedback_effect = feedback_effects.get(feedback_type, 0.0)
             
@@ -285,10 +281,14 @@ class NeuralFeedbackEnvironment(gym.Env):
         else:
             safety_penalty = 0.0
         
-        # 舒适度奖励：避免过度反馈
+        # 舒适度奖励：避免过度反馈（时长越长舒适度代价越高）
         comfort_penalty = 0.0
         if feedback_type != FeedbackType.NONE:
-            comfort_penalty = -self.config['comfort_weight'] * self.config['feedback_cost']
+            duration_cost_scale = {
+                FeedbackType.SHORT_5S: 1.0,   # 5s
+                FeedbackType.LONG_20S: 4.0,   # 20s = 4 * 5s
+            }.get(feedback_type, 1.0)
+            comfort_penalty = -self.config['comfort_weight'] * self.config['feedback_cost'] * duration_cost_scale
             
             # 频繁反馈额外惩罚
             recent_feedbacks = sum([1 for f in self.feedback_history[-3:] if f != 0])

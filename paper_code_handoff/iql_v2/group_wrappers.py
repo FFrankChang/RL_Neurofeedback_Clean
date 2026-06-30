@@ -2,7 +2,10 @@ import numpy as np
 import gymnasium as gym
 from typing import Dict, Optional, List
 
-from .neural_feedback_env import NeuralFeedbackEnvironment, FeedbackType, EEGMetrics
+try:
+    from .neural_feedback_env import NeuralFeedbackEnvironment, FeedbackType, EEGMetrics
+except ImportError:  # 允许脚本方式运行时的扁平导入
+    from neural_feedback_env import NeuralFeedbackEnvironment, FeedbackType, EEGMetrics
 
 
 def default_group_reward_profiles(num_groups: int = 4) -> Dict[int, Dict[str, float]]:
@@ -106,7 +109,11 @@ class GroupRewardWrapper(gym.Wrapper):
 
         comfort_penalty = 0.0
         if feedback_type != FeedbackType.NONE:
-            comfort_penalty = -comfort_w * cfg.get('feedback_cost', 0.01)
+            duration_cost_scale = {
+                FeedbackType.SHORT_5S: 1.0,
+                FeedbackType.LONG_20S: 4.0,
+            }.get(feedback_type, 1.0)
+            comfort_penalty = -comfort_w * cfg.get('feedback_cost', 0.01) * duration_cost_scale
             recent_feedbacks = sum([1 for f in self.env.feedback_history[-3:] if f != 0])
             if recent_feedbacks >= 2:
                 comfort_penalty *= 2.0
